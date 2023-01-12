@@ -12,6 +12,7 @@ const Home = () => {
           <Featured/>
           <h1 className="homeTitle">Cerca per tipologia di struttura</h1>
           <PropertyList/>
+          <div className="footer"></div>
         </div>
     </div>
   )

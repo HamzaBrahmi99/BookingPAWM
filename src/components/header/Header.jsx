@@ -68,7 +68,7 @@ export const Header = ({type}) => {
           <div className="headerSearch">
             <div className="headerSearchItem">
               <FontAwesomeIcon icon={faBed} className="headerIcon" />
-              <input type="text" placeholder="Where are you going?" classname="headerSearchInput" />
+              <input type="text" placeholder="Dove vuoi andare?" classname="headerSearchInput" />
             </div>
             <div className="headerSearchItem">
               <FontAwesomeIcon icon={faCalendarDays} className="headerIcon" />
@@ -86,7 +86,7 @@ export const Header = ({type}) => {
               <span onClick={()=>setOpenOptions(!openOptions)} className="headerSearchText">{`${options.adult} adult · ${options.children} children · ${options.room} room`}</span>
               {openOptions && <div className="options">
                 <div className="optionItem">
-                  <span className="optionText">Adult</span>
+                  <span className="optionText">Adulti</span>
                   <div className="optionCounter">
                     <button disabled={options.adult<=1} className="optionCounterButton" onClick={()=>handleOption("adult","d")}>-</button>
                     <span className="optionCounterNumber">{options.adult}</span>
@@ -94,7 +94,7 @@ export const Header = ({type}) => {
                   </div>
                 </div>
                 <div className="optionItem">
-                  <span className="optionText">Children</span>
+                  <span className="optionText">Bambini</span>
                   <div className="optionCounter">
                     <button disabled={options.children<=0} className="optionCounterButton" onClick={()=>handleOption("children","d")}>-</button>
                     <span className="optionCounterNumber">{options.children}</span>
@@ -102,7 +102,7 @@ export const Header = ({type}) => {
                   </div>
                 </div>
                 <div className="optionItem">
-                  <span className="optionText">Room</span>
+                  <span className="optionText">Camera</span>
                   <div className="optionCounter">
                     <button disabled={options.room<=1} className="optionCounterButton" onClick={()=>handleOption("room","d")}>-</button>
                     <span className="optionCounterNumber">{options.room}</span>

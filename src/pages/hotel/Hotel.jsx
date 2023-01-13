@@ -12,6 +12,7 @@ function Hotel() {
       <Header type="list"/>
       <div className="hotelContainer">
         <div className="hotelWrapper">
+          <button className="bookNow">Prenota ora!</button>
           <h1 className="hotelTitle">Grand Hotel</h1>
           <div className="hotelAddress">
             <FontAwesomeIcon incon={faLocationDot}/>
@@ -32,11 +33,12 @@ function Hotel() {
             </div>
             <div className="hotelDetailsPrice">
               <h1>Completa la prenotazione!</h1>
-              <b>€400</b>
+              <h2><b>€400</b></h2>
               <button>Prenota ora</button>
             </div>
           </div>
         </div>
+        <div className="footer"></div>
       </div>
     </div>
   )

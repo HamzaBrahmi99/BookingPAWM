@@ -1,17 +1,20 @@
+import { Link } from "react-router-dom"
 import "./searchItem.css"
 
-export const SearchItem = () => {
+export const SearchItem = ({item}) => {
   return (
     <div className="searchItem">
-        <img src="https://cf.bstatic.com/xdata/images/hotel/square600/72905401.webp?k=abcb71543a55a5d7cb7ce27869da1816a77efdf341c4eab2405ad2afbf5e7187&o=&s=1" alt="" className="siImg" />
+        <img src={item.photos[0]} alt="" className="siImg" />
         <div className="siDesc">
-            <h1 className="siTitle">Da Foschetta</h1>
-            <span className="siSubtitle">Camera Matrimoniale/Doppia con Letti Singoli con Vista Giardino</span>
-            <span className="siFeatures">Letti: 1 matrimoniale o 2 singoli</span>
+            <h1 className="siTitle">{item.name}</h1>
+            <span className="siSubtitle">{item.title}</span>
+            <span className="siFeatures">{item.desc}</span>
         </div>
         <div className="siDetails">
-            <div className="siPrice">€400</div>
-            <button className="siCheckButton">Vedi disponibilità</button>
+            <div className="siPrice">{item.cheapestPrice}</div>
+            <Link to={`/hotels/${item._id}`}>
+              <button className="siCheckButton">Vedi disponibilità</button>
+            </Link>
         </div>
     </div>
   )

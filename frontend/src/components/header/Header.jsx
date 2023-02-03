@@ -8,6 +8,9 @@ import 'react-date-range/dist/styles.css'; // main css file
 import 'react-date-range/dist/theme/default.css'; // theme css file
 import {format} from "date-fns"
 import { useNavigate } from "react-router-dom";
+import { useContext } from "react";
+import { SearchContext } from "../context/SearchContext";
+import { AuthContext } from "../context/AuthContext";
 
 export const Header = ({type}) => {
 
@@ -15,7 +18,7 @@ export const Header = ({type}) => {
 
   const [openDate, setOpenDate] = useState(false)
 
-  const [date, setDate] = useState([
+  const [dates, setDates] = useState([
     {
       startDate: new Date(),
       endDate: new Date(),
@@ -36,57 +39,41 @@ export const Header = ({type}) => {
     }})
   }
 
+  const {dispatch} = useContext(SearchContext)
+
+
   const navigate = useNavigate()
 
+  const { user } = useContext(AuthContext)
+
+
   const handleSearch = ()=>{
-    navigate("/hotels", { state: { destination, date, options }} )
+    dispatch({type:"NEW_SEARCH",payload:{destination,dates,options}})
+    navigate("/hotels", { state: { destination, dates, options }} )
   }
 
   return (
     <div className="header">
       <div className={type === "list" ? "headerContainer listMode" : "headerContainer"}>
-        <div className="headerList">
-          <div className="headerListItem active">
-            <FontAwesomeIcon icon={faBed} />
-            <span>Stays</span>
-          </div>
-          <div className="headerListItem">
-            <FontAwesomeIcon icon={faPlane} />
-            <span>Flights</span>
-          </div>
-          <div className="headerListItem">
-            <FontAwesomeIcon icon={faCar} />
-            <span>Car rentals</span>
-          </div>
-          <div className="headerListItem">
-            <FontAwesomeIcon icon={faBed} />
-            <span>Attractions</span>
-          </div>
-          <div className="headerListItem">
-            <FontAwesomeIcon icon={faTaxi} />
-            <span>Airport taxis</span>
-          </div>
-        </div>
         { type !== "list" && <>
-          <h1 className="headerTitle">A life of discounts= It's Genius.</h1>
+          <h1 className="headerTitle">Trova l'alloggio che fa per te!</h1>
           <p className="headerDesc">
-            Scopri le migliori stazioni sciistiche italiane e organizza 
-            la vacanza perfetta
+          Cerca offerte su hotel, case e tanto altro...
           </p>
-          <button className="headerBtn">Sign In / Register</button>
+          {!user && <h1 className="headerBtn">Non sei registrato!</h1>}
           <div className="headerSearch">
             <div className="headerSearchItem">
               <FontAwesomeIcon icon={faBed} className="headerIcon" />
-              <input type="text" placeholder="Dove vuoi andare?" classname="headerSearchInput" onChange={e=>setDestination(e.target.value)}/>
+              <input type="text" placeholder="Dove vuoi andare?" classname="headerSearchInput" onChange={e=>setDestination(e.target.value.toLowerCase())}/>
             </div>
             <div className="headerSearchItem">
               <FontAwesomeIcon icon={faCalendarDays} className="headerIcon" />
-              <span onClick={()=>setOpenDate(!openDate)} className="headerSearchText">{`${format(date[0].startDate, "dd/MM/yyyy")} to ${format(date[0].endDate, "dd/MM/yyyy")}`}</span>
+              <span onClick={()=>setOpenDate(!openDate)}  className="headerSearchText">{`${format(dates[0].startDate, "dd/MM/yyyy")} to ${format(dates[0].endDate, "dd/MM/yyyy")}`}</span>
               {openDate && <DateRange
                 editableDateInputs={true}
-                onChange={(item) => setDate([item.selection])}
+                onChange={(item) => setDates([item.selection]) && setOpenDate(!openDate)}
                 moveRangeOnFirstSelection={false}
-                ranges={date}
+                ranges={dates}
                 className="date"
                 minDate={new Date()}
               />}

@@ -3,6 +3,7 @@
     background-color: #003580;
     display: flex;
     justify-content: center;
+    font-size: 30px;
 }
 
 .navConteiner{
@@ -15,6 +16,7 @@
 }
 
 .logo{
+    font-size: 15px;
     font-weight: 500;
 }
 

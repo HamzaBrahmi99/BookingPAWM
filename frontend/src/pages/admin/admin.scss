@@ -1,0 +1,13 @@
+.admin{
+    width:100%;
+    display:flex;
+
+    .adminContainer{
+        flex:6;
+        .h1 {
+            color: lightgray;
+            font-size: 20px;
+        }
+        
+    }
+}

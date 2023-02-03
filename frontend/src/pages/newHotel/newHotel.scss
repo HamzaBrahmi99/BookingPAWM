@@ -1,0 +1,49 @@
+.newHotel{
+    width:100%;
+    display:flex;
+
+    .newHotelContainer{
+        flex:6;
+        .h1 {
+            color: lightgray;
+            font-size: 20px;
+        }
+        .datiContainer{
+            -webkit-box-shadow: 2px 4px 10px 1px rgba(0, 0, 0, 0.47);
+            box-shadow: 2px 4px 10px 1px rgba(201, 201, 201, 0.47);
+            padding: 10px;
+            margin: 20px;
+            display: flex;
+
+
+            form{
+                display: flex;
+                flex-wrap: wrap;
+                gap: 20px;
+
+                .formInput{
+                    width: 40%;
+
+                    input{
+                        width: 100%;
+                        padding: 5px;
+                        border: none;
+                        border-bottom: 1px solid gray;
+                    }
+                    
+                }
+                button{
+                    width: 38%;
+                        background-color: #0071c2;
+                        color: white;
+                        font-weight: bold;
+                        padding: 10px 5px;
+                        border: none;
+                        cursor: pointer;
+                        border-radius: 5px;
+                    }
+                
+            }
+        }
+    }
+}

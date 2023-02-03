@@ -10,7 +10,7 @@ const Home = () => {
         <Header />
         <div className="homeContainer">
           <Featured/>
-          <h1 className="homeTitle">Cerca per tipologia di struttura</h1>
+          <h1 className="homeTitle">Numero di strutture per tipologia</h1>
           <PropertyList/>
           <div className="footer"></div>
         </div>

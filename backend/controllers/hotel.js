@@ -2,7 +2,7 @@ import Hotel from "../models/Hotel.js";
 
 export const createHotel = async (req,res,next)=>{
     const newHotel = new Hotel(req.body);
-    
+    console.log(newHotel)
     try {
         const saveHotel = await newHotel.save();
         res.status(200).json(saveHotel);
@@ -13,11 +13,20 @@ export const createHotel = async (req,res,next)=>{
 
 export const updateHotel = async (req,res,next)=>{
     try {
-        const updatedHotel = await Hotel.findByIdAndUpdate(req.params.id, { $set: req.body}, {new: true});
+        const updatedHotel = await Hotel.findByIdAndUpdate(req.params.id,{ $set: req.body },{ new: true });
         res.status(200).json(updatedHotel);
-    } catch (err) {
+      } catch (err) {
         next(err);
-    }
+      }
+}
+
+export const reserveRoomHotel = async (req,res,next)=>{
+    try {
+        const updatedHotel = await Hotel.findByIdAndUpdate(req.params.id,{ $set: req.body },{ new: true });
+        res.status(200).json(updatedHotel);
+      } catch (err) {
+        next(err);
+      }
 }
 
 export const deleteHotel = async (req,res,next)=>{

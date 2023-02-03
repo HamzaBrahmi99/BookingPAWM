@@ -17,15 +17,17 @@ const router = express.Router();
 //});
 
 //UPDATE
-router.put("/:id", verifyUser, updateUser);
+router.put("/:id", verifyAdmin, updateUser);
 
 //DELETE
-router.delete("/:id", verifyUser, deleteUser);
+router.delete("/:id", verifyAdmin, deleteUser);
+router.delete("/allusers/:id", verifyAdmin, deleteUser);
 
 //GET
-router.get("/:id", verifyUser, getUser);
+router.get("/:id", verifyAdmin, getUser);
 
 //GETALL
 router.get("/", verifyAdmin, getUsers);
+router.get("allusers/", verifyAdmin, getUsers);
 
 export default router

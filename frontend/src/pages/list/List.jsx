@@ -13,7 +13,7 @@ function List() {
   const location = useLocation()
 
   const [destination, setDestination] = useState(location.state.destination)
-  const [date, setDate] = useState(location.state.date)
+  const [dates, setDates] = useState(location.state.dates)
   const [options, setOptions] = useState(location.state.options)
   const [openDate, setOpenDate] = useState(false)
 
@@ -22,9 +22,11 @@ function List() {
 
   const { data,loading,error,reFetch } = useFetch(`/hotels?city=${destination}&min=${min || 0}&max=${max||999}`)
 
+  
   const handleClick = ()=>{
     reFetch()
   }
+
   return (
     <div>
       <Navbar/>
@@ -35,19 +37,18 @@ function List() {
           <h1 className="lsTitle">Search</h1>
           <div className="lsItem">
             <label>Destinazione/nome struttura:</label>
-            <input placeholder={destination} type="text"/>
+            <input onChange={(e)=>setDestination(e.target.value.toLowerCase())} placeholder={destination} type="text" id="dest"/>
           </div>
           <div className="lsItem">
             <label>Check-in Date</label>
-            <span onClick={()=>setOpenDate(!openDate)}>{`${format(date[0].startDate, "dd/MM/yyyy")} to ${format(date[0].endDate, "dd/MM/yyyy")}`}</span>
+            <span onClick={()=>setOpenDate(!openDate)}>{`${format(dates[0].startDate, "dd/MM/yyyy")} to ${format(dates[0].endDate, "dd/MM/yyyy")}`}</span>
             {openDate && <DateRange 
-              onChange={(item)=>setDate([item.selection])} 
+              onChange={(item)=>setDates([item.selection])} 
               minDate={new Date()}
-              ranges={date}
+              ranges={dates}
             />}
           </div>
           <div className="lsItem">
-            <label>Options</label>
             <div className="lsOptions">
               <div className="lsOptionItem">
                 <span className="lsOptionText">Min prezzo <small>per notte</small></span>

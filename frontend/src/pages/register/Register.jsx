@@ -24,7 +24,9 @@ const Register = () => {
           
         }
       };
-
+      const handleReg = (e)=>{
+        navigate("/login");
+      }
 return (
     <div className="login">
         <div className="lContainer">
@@ -32,7 +34,9 @@ return (
             <input type="text" placeholder="username" id="username" onChange={handleChange} className="lInput" />
             <input type="text" placeholder="email" id="email" onChange={handleChange} className="lInput" />
             <input type="password" placeholder="password" id="password" onChange={handleChange} className="lInput" />
-        <button disabled={loading} onClick={handleClick} className="lButton">Sign In!</button>
+        <button disabled={loading} onClick={handleClick} className="lButton">Registrati!</button>
+        <button disabled={loading} onClick={handleReg} className="lButton">Sei già registrato?</button>
+        
         {error &&<span>{error.message}</span>}
         </div>
     </div>

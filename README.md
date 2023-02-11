@@ -2,6 +2,19 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## Prerequisiti
+- [Nodejs](https://nodejs.org/en/)
+- Un account [MongoDB](https://cloud.mongodb.com/)
+## Installazione
+### Server
+1. Spostarsi nella cartella backend `cd backend`
+2. Installare tutti i pacchetti npm necessari con `npm install`
+3. Far partire il server con `npm start`
+### Client
+1. Spostarsi nella cartella frontend `cd frontend`
+2. Installare tutti i pacchetti npm necessari `npm install`
+3. Far partire il server `npm start`
+
 ## Available Scripts
 
 In the project directory, you can run:

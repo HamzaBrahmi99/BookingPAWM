@@ -1,12 +1,9 @@
-import { useContext, useState } from "react";
-import { useNavigate } from "react-router-dom";
 import useFetch from "../../hooks/useFetch"
-import { SearchContext } from "../context/SearchContext";
 import "./propertyList.css"
 
 const PropertyList = () => {
 
-    const {data,loading,error,reFetch} = useFetch("/hotels/countByType");
+    const {data,loading} = useFetch("/hotels/countByType");
     
   return (
     <div className="pList">

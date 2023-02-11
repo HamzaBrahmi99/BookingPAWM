@@ -7,7 +7,7 @@ import "./register.css"
 
 const Register = () => {
     
-    const { loading, error, dispatch} = useContext(AuthContext)
+    const { loading, error} = useContext(AuthContext)
     const navigate = useNavigate()
     const [info, setInfo] = useState({})
 

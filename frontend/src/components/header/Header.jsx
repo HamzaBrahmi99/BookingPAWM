@@ -1,5 +1,5 @@
 import { faCalendarDays } from "@fortawesome/free-regular-svg-icons"
-import { faBed, faCar, faPerson, faPlane, faTaxi } from "@fortawesome/free-solid-svg-icons"
+import { faBed, faPerson } from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import "./header.css"
 import { DateRange } from 'react-date-range';

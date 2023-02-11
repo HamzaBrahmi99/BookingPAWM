@@ -1,7 +1,11 @@
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# BookingApp
 
+## Introduzione
+BookingApp è una semplice single-page web application per la gestione delle prenotazioni da parte di utenti registrati negli hotel gestiti dall'admin di sistema.
+Per maggiori dettagli vedi il file RelazionePAWM.pdf.
 ## Prerequisiti
 - [Nodejs](https://nodejs.org/en/)
 - Un account [MongoDB](https://cloud.mongodb.com/)
